@@ -2,12 +2,12 @@ public class FactuurAplicatieTest {
     public static void main(String[] args) {
         FactuurAplicatie app = new FactuurAplicatie();
 
-        // Voeg een klant toe aan de KlantDatabase
+        // test klant toevoegen aan de KlantDatabase
         Klant klant = new Klant("Jeppe Jorg", "Straat 123", "jepjorg13@gmail.com");
         app.voegKlantToe(klant);  // Zorg ervoor dat de klant wordt toegevoegd aan de database
         System.out.println("Klant toegevoegd: " + klant.getNaam());
 
-        // Maak een nieuwe factuur
+        // test  Maaken nieuwe factuur
         Factuur factuur = app.maakNieuweFactuur("jepjorg13@gmail.com", 100.0);
         if (factuur != null) {
             System.out.println("Factuur gemaakt: " + factuur.getFactuurNummer());
