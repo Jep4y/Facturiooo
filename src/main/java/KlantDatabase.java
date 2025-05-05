@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class KlantDatabase {
     private Map<String, Klant> klanten;
-    private final String bestandPad = "C:/Users/jepjo/Documents/facaturen/klanten.txt";  // Pad naar het bestand voor klantgegevens
+    private final String bestandPad = "C:/Users/jepjo/Documents/facaturen/klanten.txt";  // pad naar het bestand voor klantgegevens op mijn pc
 
     public KlantDatabase() {
         klanten = new HashMap<>();
@@ -13,7 +13,7 @@ public class KlantDatabase {
 
     public void voegKlantToe(Klant klant) {
         klanten.put(klant.getEmail(), klant);
-        slaKlantenOpInBestand();  // Sla klanten op telkens wanneer er een nieuwe klant wordt toegevoegd
+        slaKlantenOpInBestand();  // sla klanten op telkens wanneer er een nieuwe klant wordt toegevoegd
     }
 
     public Klant zoekKlant(String email) {
@@ -42,7 +42,7 @@ public class KlantDatabase {
     private void laadKlantenUitBestand() {
         File file = new File(bestandPad);
         if (!file.exists()) {
-            return;  // Geen bestand, geen klanten om in te laden
+            return;  // als er geen bestand is zijn er geen klanten om in te laden
         }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
