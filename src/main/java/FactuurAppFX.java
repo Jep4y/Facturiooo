@@ -17,7 +17,7 @@ public class FactuurAppFX extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Facturio - Facturatie");
 
-        // --- Sectie: Nieuwe Klant Toevoegen ---
+        //nieuwen klant toevoege
         Label newClientLabel = new Label("Nieuwe Klant");
         TextField nameField = new TextField();
         nameField.setPromptText("Naam");
@@ -32,7 +32,7 @@ public class FactuurAppFX extends Application {
         newClientBox.setPadding(new Insets(20));
         newClientBox.setStyle("-fx-border-color: #333; -fx-border-width: 1; -fx-background-color: #f9f9f9;");
 
-        // --- Sectie: Factuur Maken ---
+        // factuur maken 
         Label invoiceLabel = new Label("Factuur");
         ComboBox<Klant> clientComboBox = new ComboBox<>();
         clientComboBox.setPromptText("Selecteer Klant");
@@ -47,16 +47,16 @@ public class FactuurAppFX extends Application {
         invoiceBox.setPadding(new Insets(20));
         invoiceBox.setStyle("-fx-border-color: #333; -fx-border-width: 1; -fx-background-color: #f9f9f9;");
 
-        // Hoofdlayout
+        //  hoofdlayout
         HBox root = new HBox(20, newClientBox, invoiceBox);
         root.setPadding(new Insets(20));
         root.setStyle("-fx-background-color: #ffffff;");
 
-        // Laad klanten in de ComboBox (omzetten naar een List)
+        // Laad klanten in de ComboBox (omzetten naar een list)
         List<Klant> klantenLijst = new ArrayList<>(klantDatabase.getKlanten().values());
         clientComboBox.getItems().addAll(klantenLijst);
 
-        // Acties: Klant Opslaan
+        // klant Opslaan
         addClientButton.setOnAction(e -> {
             String naam = nameField.getText().trim();
             String adres = addressField.getText().trim();
@@ -73,7 +73,7 @@ public class FactuurAppFX extends Application {
             nameField.clear(); addressField.clear(); emailField.clear();
         });
 
-        // Acties: Factuur Verzenden
+        // factuur verzende
         sendButton.setOnAction(e -> {
             Klant geselecteerde = clientComboBox.getValue();
             if (geselecteerde == null) {
