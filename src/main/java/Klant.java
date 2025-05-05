@@ -24,7 +24,7 @@ public class Klant {
     public boolean isGeldig() {
         return naam != null && !naam.isEmpty() && email != null && !email.isEmpty();
     }
-    // De toString() methode voor een nette weergave van de Klant
+    // de toString() methode voor het weergave van de klant
     @Override
     public String toString() {
         return naam;
