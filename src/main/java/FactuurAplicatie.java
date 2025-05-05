@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.Properties;
 
 public class FactuurAplicatie {
-    private int laatstGebruikNummer;  // Begin nummer als int, bijvoorbeeld F2025-000 wordt 202500
+    private int laatstGebruikNummer;  // Begin nummer als int bijvoorbeeld F2025-000 wordt 202500
     private KlantDatabase klantDatabase;
     private PDFGenerator pdfGenerator;
 
@@ -23,10 +23,10 @@ public class FactuurAplicatie {
             return null;
         }
 
-        // Gebruik het laatst gebruikte nummer als int zonder conversie naar String
+        // gebruik het latst gebruikten nummer als int zonder omzet naar String
         int factuurNummer = laatstGebruikNummer;
 
-        // Maak de factuur aan met het nummer als int
+        // maakt de factuur aan met het nummer als int
         Factuur factuur = new Factuur(klant, bedrag, factuurNummer);
 
         // Verhoog het laatst gebruikte nummer voor de volgende factuur
@@ -83,7 +83,7 @@ public class FactuurAplicatie {
     }
 
     public void verwerkFactuur(Factuur factuur) {
-        // Genereren en versturen van de factuur
+        // genereren en versturen van de factuur
         String bestandsnaam = pdfGenerator.genereer(factuur);
         if (bestandsnaam != null) {
             verstuurFactuur(factuur, bestandsnaam);
